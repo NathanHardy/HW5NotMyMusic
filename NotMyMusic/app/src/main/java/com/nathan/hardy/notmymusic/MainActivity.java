@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,13 +18,15 @@ public class MainActivity extends Activity {
 
     SearchFragment searchFragment = new SearchFragment();
 
+    PlaceholderFragment placeholder = new PlaceholderFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, placeholder)
                     .commit();
         }
     }
@@ -45,10 +48,12 @@ public class MainActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_search) {
+            SharedMethod();
             return true;
         }
 
         if (id == R.id.action_add) {
+            SharedMethod2();
             return true;
         }
 
@@ -71,9 +76,36 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void SwapView(View view) {
+    private void SharedMethod() {
         FragmentTransaction transaction = getFragmentManager().beginTransaction().addToBackStack(null);
 
+        getFragmentManager().beginTransaction()
+                .remove(placeholder)
+                .commit();
+
+        transaction.add(R.id.container, searchFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
         transaction.remove(searchFragment);
+
+        getFragmentManager().beginTransaction()
+                .remove(searchFragment)
+                .commit();
+    }
+
+    public void SwapView(View view) {
+        SharedMethod();
+    }
+
+    public void StartNewActivity(View view) {
+        SharedMethod2();
+    }
+
+    private void SharedMethod2() {
+        startActivity(new Intent(MainActivity.this, AddActivity.class));
+    }
+
+    public void StartDetailActivity(View view) {
+        startActivity(new Intent(MainActivity.this, DetailActivity.class));
     }
 }

@@ -17,16 +17,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.nathan.hardy.notmymusic.SearchActivity"
-            android:label="@string/title_activity_search" >
-        </activity>
-        <activity
             android:name="com.nathan.hardy.notmymusic.AddActivity"
-            android:label="@string/title_activity_add" >
+            android:label="@string/title_activity_add"
+            android:parentActivityName=".MainActivity"
+            >
         </activity>
         <activity
             android:name="com.nathan.hardy.notmymusic.DetailActivity"
-            android:label="@string/title_activity_detail" >
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".MainActivity"
+            >
         </activity>
     </application>
 

@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.Toast;
 
 
 public class DetailActivity extends Activity {
@@ -23,6 +25,22 @@ public class DetailActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        ActionBar actionbar = getActionBar();
+        actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        ActionBar.Tab tab1 = actionbar.newTab().setText("Details");
+        tab1.setTabListener(new MyTabListener());
+        actionbar.addTab(tab1);
+
+        ActionBar.Tab tab2 = actionbar.newTab().setText("More Music");
+        tab2.setTabListener(new MyTabListener());
+        actionbar.addTab(tab2);
+
+        ActionBar.Tab tab3 = actionbar.newTab().setText("Events");
+        tab3.setTabListener(new MyTabListener());
+        actionbar.addTab(tab3);
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -39,10 +57,11 @@ public class DetailActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+            case R.id.action_settings: settings(); return true;
+            case R.id.action_search: search(); return true;
+            case R.id.action_add: add(); return true;
+            case R.id.home: NavUtils.navigateUpFromSameTask(this); return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -62,5 +81,20 @@ public class DetailActivity extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
             return rootView;
         }
+    }
+
+    private void add() {
+        Toast toast = Toast.makeText(this, "Adding", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    private void search() {
+        Toast toast = Toast.makeText(this, "Search", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    private void settings() {
+        Toast toast = Toast.makeText(this, "Settings", Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

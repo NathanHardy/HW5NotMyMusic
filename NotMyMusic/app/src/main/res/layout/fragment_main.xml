@@ -7,7 +7,7 @@
     tools:context=".MainActivity$PlaceholderFragment" >
 
     <GridLayout
-        android:"@+id/gridMain"
+        android:id="@+id/gridMain"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:columnCount="3"
@@ -17,55 +17,64 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button" />
+            android:id="@+id/button"
+            android:onClick="StartDetailActivity" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button2" />
+            android:id="@+id/button2"
+            android:onClick="StartDetailActivity" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button3" />
+            android:id="@+id/button3"
+            android:onClick="StartDetailActivity" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button4" />
+            android:id="@+id/button4"
+            android:onClick="StartDetailActivity" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button5" />
+            android:id="@+id/button5"
+            android:onClick="StartDetailActivity" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button6" />
+            android:id="@+id/button6"
+            android:onClick="StartDetailActivity" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button7" />
+            android:id="@+id/button7"
+            android:onClick="StartDetailActivity" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button8" />
+            android:id="@+id/button8"
+            android:onClick="StartDetailActivity" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button9" />
+            android:id="@+id/button9"
+            android:onClick="StartDetailActivity" />
     </GridLayout>
 </RelativeLayout>
 
