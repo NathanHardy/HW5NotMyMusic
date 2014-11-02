@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.nathan.hardy.notmymusic.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name="com.nathan.hardy.notmymusic.AddActivity"
+            android:label="@string/title_activity_add" >
+        </activity>
+        <activity
+            android:name="com.nathan.hardy.notmymusic.DetailActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
     </application>
 
 </manifest>
